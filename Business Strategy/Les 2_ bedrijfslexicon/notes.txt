@@ -1,0 +1,10 @@
+EOQ toch bestellen van producten voor voorraad:
+- verandering in vraag "hamsteren" wc papier covid
+- verandering in de prijs
+- einde van de reeks (bv: opkopen materiaal van bedrijf die stopt)
+- verandering productie 
+
+procurement = aankoop
+overlopende rekeningen (bv: brandverzekering die over enkele maanden in 2 jaar teld bv oktober 2025 - oktober 2026) dus deel in de rekeningen het volgende jaar kosten in de overlopende rekeningen
+
+GDPR = gegevensbescherming
