@@ -1,0 +1,4 @@
+kernfusie in de zon zorgt voor de stralen naar de aarde voor de opwarming. warmte blijft door de dampkring.
+zonnecollector = buizen met water om op te warmen. gelijkaardig van zicht met een zonnepaneel.
+warmtepomp energieverplaatsen van punt a naar b ofwel warmer of kouder.
+2 adiabaten en 2 isothermen = carnot Process
