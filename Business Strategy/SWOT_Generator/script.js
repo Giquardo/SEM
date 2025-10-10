@@ -389,9 +389,9 @@ function downloadMatrixImage() {
     const canvas = document.getElementById('matrixCanvas');
     const ctx = canvas.getContext('2d');
     
-    // Set canvas size
-    const width = 1000;
-    const height = 800;
+    // Set canvas size - increased for better readability
+    const width = 1600;
+    const height = 1200;
     canvas.width = width;
     canvas.height = height;
     
@@ -423,37 +423,37 @@ function drawMatrixToCanvas(ctx, width, height) {
     const opportunitiesCount = currentSWOTData.opportunities.length || 3;
     const threatsCount = currentSWOTData.threats.length || 3;
     
-    const cellWidth = (width - 250) / (opportunitiesCount + threatsCount);
-    const cellHeight = Math.max(80, (height - 180) / (strengthsCount + weaknessesCount + 2));
+    const cellWidth = Math.max(120, (width - 320) / (opportunitiesCount + threatsCount));
+    const cellHeight = Math.max(100, (height - 200) / (strengthsCount + weaknessesCount + 2));
     
     // Draw title
     ctx.fillStyle = '#333';
-    ctx.font = 'bold 24px Arial';
+    ctx.font = 'bold 32px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText('Confrontation Matrix (TOWS)', width/2, 30);
+    ctx.fillText('Confrontation Matrix (TOWS)', width/2, 40);
     
     // Draw main headers
-    ctx.font = 'bold 16px Arial';
+    ctx.font = 'bold 20px Arial';
     ctx.fillStyle = '#4a90e2';
     
     // "Opportunities" header
-    const oppsX = 200;
+    const oppsX = 250;
     const oppsWidth = opportunitiesCount * cellWidth;
-    ctx.fillRect(oppsX, 60, oppsWidth, 40);
+    ctx.fillRect(oppsX, 70, oppsWidth, 50);
     ctx.fillStyle = 'white';
-    ctx.fillText('Opportunities', oppsX + oppsWidth/2, 85);
+    ctx.fillText('Opportunities', oppsX + oppsWidth/2, 100);
     
     // "Threats" header
     const threatsX = oppsX + oppsWidth;
     const threatsWidth = threatsCount * cellWidth;
     ctx.fillStyle = '#4a90e2';
-    ctx.fillRect(threatsX, 60, threatsWidth, 40);
+    ctx.fillRect(threatsX, 70, threatsWidth, 50);
     ctx.fillStyle = 'white';
-    ctx.fillText('Threats', threatsX + threatsWidth/2, 85);
+    ctx.fillText('Threats', threatsX + threatsWidth/2, 100);
     
     // Draw sub-headers
-    ctx.font = 'bold 14px Arial';
-    let currentY = 100;
+    ctx.font = 'bold 18px Arial';
+    let currentY = 120;
     
     // Opportunities sub-headers (K1, K2, K3...)
     for (let i = 1; i <= opportunitiesCount; i++) {
@@ -463,9 +463,9 @@ function drawMatrixToCanvas(ctx, width, height) {
         ctx.fillStyle = 'white';
         ctx.fillText(`O${i}`, x + cellWidth/2, currentY + cellHeight/2 + 5);
         
-        // Add border to K cells
+        // Add border to O cells
         ctx.strokeStyle = '#333';
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 2;
         ctx.strokeRect(x, currentY, cellWidth, cellHeight);
     }
     
@@ -477,9 +477,9 @@ function drawMatrixToCanvas(ctx, width, height) {
         ctx.fillStyle = 'white';
         ctx.fillText(`T${i}`, x + cellWidth/2, currentY + cellHeight/2 + 5);
         
-        // Add border to B cells
+        // Add border to T cells
         ctx.strokeStyle = '#333';
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 2;
         ctx.strokeRect(x, currentY, cellWidth, cellHeight);
     }
     
@@ -488,11 +488,11 @@ function drawMatrixToCanvas(ctx, width, height) {
     // Draw "Strengths" section
     ctx.fillStyle = '#4a90e2';
     const strengthsHeight = strengthsCount * cellHeight;
-    ctx.fillRect(20, currentY, 80, strengthsHeight);
+    ctx.fillRect(30, currentY, 100, strengthsHeight);
     ctx.fillStyle = 'white';
-    ctx.font = 'bold 14px Arial';
+    ctx.font = 'bold 18px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText('Strengths', 60, currentY + strengthsHeight/2 + 5);
+    ctx.fillText('Strengths', 80, currentY + strengthsHeight/2 + 5);
     
     // Draw Strengths rows and strategy cells
     for (let s = 1; s <= strengthsCount; s++) {
@@ -500,14 +500,14 @@ function drawMatrixToCanvas(ctx, width, height) {
         
         // S1, S2, S3 labels
         ctx.fillStyle = '#2196F3';
-        ctx.fillRect(100, rowY, 100, cellHeight);
+        ctx.fillRect(130, rowY, 120, cellHeight);
         ctx.fillStyle = 'white';
-        ctx.fillText(`S${s}`, 150, rowY + cellHeight/2 + 5);
+        ctx.fillText(`S${s}`, 190, rowY + cellHeight/2 + 5);
         
         // Add border to S cells
         ctx.strokeStyle = '#333';
-        ctx.lineWidth = 1;
-        ctx.strokeRect(100, rowY, 100, cellHeight);
+        ctx.lineWidth = 2;
+        ctx.strokeRect(130, rowY, 120, cellHeight);
         
         // SO strategies (Yellow)
         for (let k = 1; k <= opportunitiesCount; k++) {
@@ -517,16 +517,16 @@ function drawMatrixToCanvas(ctx, width, height) {
             
             // Add border to SO strategy cells
             ctx.strokeStyle = '#333';
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 2;
             ctx.strokeRect(x, rowY, cellWidth, cellHeight);
             
             // Draw strategy text if any
             const cellKey = `S${s}-O${k}`;
             if (matrixData[cellKey]) {
                 ctx.fillStyle = '#333';
-                ctx.font = '9px Arial';
+                ctx.font = '12px Arial';
                 ctx.textAlign = 'left';
-                drawWrappedText(ctx, matrixData[cellKey], x + 8, rowY + 20, cellWidth - 16, 11);
+                drawWrappedText(ctx, matrixData[cellKey], x + 10, rowY + 25, cellWidth - 20, 14);
             }
         }
         
@@ -538,16 +538,16 @@ function drawMatrixToCanvas(ctx, width, height) {
             
             // Add border to ST strategy cells
             ctx.strokeStyle = '#333';
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 2;
             ctx.strokeRect(x, rowY, cellWidth, cellHeight);
             
             // Draw strategy text if any
             const cellKey = `S${s}-T${b}`;
             if (matrixData[cellKey]) {
                 ctx.fillStyle = 'white';
-                ctx.font = '9px Arial';
+                ctx.font = '12px Arial';
                 ctx.textAlign = 'left';
-                drawWrappedText(ctx, matrixData[cellKey], x + 8, rowY + 20, cellWidth - 16, 11);
+                drawWrappedText(ctx, matrixData[cellKey], x + 10, rowY + 25, cellWidth - 20, 14);
             }
         }
     }
@@ -556,20 +556,20 @@ function drawMatrixToCanvas(ctx, width, height) {
     
     // Draw horizontal border between Strengths and Weaknesses sections
     ctx.strokeStyle = '#333';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.moveTo(20, currentY);
+    ctx.moveTo(30, currentY);
     ctx.lineTo(oppsX + oppsWidth + threatsWidth, currentY);
     ctx.stroke();
     
     // Draw "Weaknesses" section
     ctx.fillStyle = '#4a90e2';
     const weaknessesHeight = weaknessesCount * cellHeight;
-    ctx.fillRect(20, currentY, 80, weaknessesHeight);
+    ctx.fillRect(30, currentY, 100, weaknessesHeight);
     ctx.fillStyle = 'white';
-    ctx.font = 'bold 14px Arial';
+    ctx.font = 'bold 18px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText('Weaknesses', 60, currentY + weaknessesHeight/2 + 5);
+    ctx.fillText('Weaknesses', 80, currentY + weaknessesHeight/2 + 5);
     
     // Draw Weaknesses rows and strategy cells
     for (let z = 1; z <= weaknessesCount; z++) {
@@ -577,14 +577,14 @@ function drawMatrixToCanvas(ctx, width, height) {
         
         // W1, W2, W3 labels
         ctx.fillStyle = '#FF9800';
-        ctx.fillRect(100, rowY, 100, cellHeight);
+        ctx.fillRect(130, rowY, 120, cellHeight);
         ctx.fillStyle = 'white';
-        ctx.fillText(`W${z}`, 150, rowY + cellHeight/2 + 5);
+        ctx.fillText(`W${z}`, 190, rowY + cellHeight/2 + 5);
         
-        // Add border to Z cells
+        // Add border to W cells
         ctx.strokeStyle = '#333';
-        ctx.lineWidth = 1;
-        ctx.strokeRect(100, rowY, 100, cellHeight);
+        ctx.lineWidth = 2;
+        ctx.strokeRect(130, rowY, 120, cellHeight);
         
         // WO strategies (Light Green)
         for (let k = 1; k <= opportunitiesCount; k++) {
@@ -594,16 +594,16 @@ function drawMatrixToCanvas(ctx, width, height) {
             
             // Add border to WO strategy cells
             ctx.strokeStyle = '#333';
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 2;
             ctx.strokeRect(x, rowY, cellWidth, cellHeight);
             
             // Draw strategy text if any
             const cellKey = `W${z}-O${k}`;
             if (matrixData[cellKey]) {
                 ctx.fillStyle = 'white';
-                ctx.font = '9px Arial';
+                ctx.font = '12px Arial';
                 ctx.textAlign = 'left';
-                drawWrappedText(ctx, matrixData[cellKey], x + 8, rowY + 20, cellWidth - 16, 11);
+                drawWrappedText(ctx, matrixData[cellKey], x + 10, rowY + 25, cellWidth - 20, 14);
             }
         }
         
@@ -615,16 +615,16 @@ function drawMatrixToCanvas(ctx, width, height) {
             
             // Add border to WT strategy cells
             ctx.strokeStyle = '#333';
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 2;
             ctx.strokeRect(x, rowY, cellWidth, cellHeight);
             
             // Draw strategy text if any
             const cellKey = `W${z}-T${b}`;
             if (matrixData[cellKey]) {
                 ctx.fillStyle = 'white';
-                ctx.font = '9px Arial';
+                ctx.font = '12px Arial';
                 ctx.textAlign = 'left';
-                drawWrappedText(ctx, matrixData[cellKey], x + 8, rowY + 20, cellWidth - 16, 11);
+                drawWrappedText(ctx, matrixData[cellKey], x + 10, rowY + 25, cellWidth - 20, 14);
             }
         }
     }
@@ -651,10 +651,10 @@ function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight) {
         lines.push(currentLine);
     }
     
-    // Limit to maximum 5 lines to prevent overflow
-    if (lines.length > 5) {
-        lines = lines.slice(0, 4);
-        lines.push(lines[4] + '...');
+    // Limit to maximum 6 lines to prevent overflow (increased for larger canvas)
+    if (lines.length > 6) {
+        lines = lines.slice(0, 5);
+        lines.push(lines[5] + '...');
     }
     
     // Draw each line
