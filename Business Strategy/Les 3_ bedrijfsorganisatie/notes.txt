@@ -1,0 +1,71 @@
+opdracht analyze bedrijfsopdeling van het bedrijf het organisatiemodel en hoe zie je dit persoonlijk naar de toekomst toe, wat zouden de voordelen zijn naar de toekomst toe en het bedrijf?
+
+Beaulieu International Group (B.I.G.)
+│
+├── Raad van Bestuur (7 leden)
+│   ├── Audit Committee
+│   ├── Remuneration & Nomination Committee
+│   └── Real Estate Committee
+│
+└── Executive Committee
+    │
+    ├── Chief Executive Officer (CEO)
+    ├── Chief Financial Officer (CFO)
+    ├── Chief Human Resources Officer (CHRO)
+    ├── Chief Operating Officer (COO) – momenteel vacant
+    ├── Vice President Flooring Solutions
+    │   └── Business Unit: Flooring Solutions
+    │       ├── ± 3.000 medewerkers
+    │       └── Producten: tapijt, vinylvloeren, naaldvilt, kunstgras
+    │
+    └──Business Unit: Flooring Solutions
+    │   │
+    │   ├── Productcategorieën
+    │   │   ├── Hard Flooring
+    │   │   │   ├── Vinylvloeren (LVT, SPC, Sheet)
+    │   │   │   ├── Laminaat
+    │   │   │   └── Parket
+    │   │   │
+    │   │   ├── Soft Flooring
+    │   │   │   ├── Tapijt (rollen & tegels)
+    │   │   │   └── Naaldviltvloeren
+    │   │   │
+    │   │   ├── Outdoor Flooring
+    │   │   │   └── Kunstgras (residentieel en sport)
+    │   │   │
+    │   │   └── Industrial Flooring
+    │   │       └── Projectvloeren voor kantoren, scholen, zorginstellingen, enz.
+    │   │
+    │   ├── Merken (commerciële segmentatie)
+    │   │   ├── BerryAlloc – laminaat & vinylvloeren
+    │   │   ├── Beauflor – sheet vinyl & SPC
+    │   │   ├── Orotex – tapijt & naaldvilt
+    │   │   ├── Ideal – tapijtoplossingen
+    │   │   └── Real / Turfgrass – kunstgras
+    │   │
+    │   ├── Ondersteunende afdelingen
+    │   │   ├── R&D en Productontwikkeling
+    │   │   ├── Productie (15+ fabrieken wereldwijd)
+    │   │   ├── Marketing & Branding
+    │   │   ├── Sales & Distributie (per regio: Europa, VS, Azië)
+    │   │   ├── Kwaliteit & Duurzaamheid
+    │   │   └── Supply Chain & Logistiek
+    │   │
+    │   └── Aantal medewerkers: ± 3.000
+    |
+    │
+    ├── Business Unit: Polymers
+    │   ├── ± 300 medewerkers
+    │   └── Producten: polypropyleen, circulaire polymeren
+    │ 
+    └── Corporate Services
+        ├── Finance & Accounting
+        ├── Human Resources
+        ├── Corporate Communications
+        ├── Sustainability & Innovation
+        └── Legal & Compliance
+            │
+            └── Duurzaamheidsstructuur
+                ├── Sustainability Acceleration Team
+                ├── Corporate Sustainability Team
+                └── Sustainability Network
